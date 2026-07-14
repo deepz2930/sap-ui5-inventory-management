@@ -5,13 +5,8 @@
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "title": "{{appTitle}}",
-    "applicationVersion": { "version": "1.0.0" },
-    "dataSources": {
-      "northwind": {
-        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
-        "type": "OData",
-        "settings": { "odataVersion": "2.0" }
-      }
+    "applicationVersion": {
+      "version": "1.0.0"
     }
   },
   "sap.ui5": {
@@ -31,11 +26,13 @@
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
-        "settings": { "bundleName": "learning.northwind.i18n.i18n" }
+        "settings": {
+          "bundleName": "learning.northwind.i18n.i18n"
+        }
       },
-      "": {
-        "dataSource": "northwind",
-        "preload": true
+      "products": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/products.json"
       }
     },
     "routing": {
