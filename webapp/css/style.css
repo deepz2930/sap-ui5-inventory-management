@@ -1,0 +1,645 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+
+--primary:#4F46E5;
+--primaryDark:#4338CA;
+--primaryLight:#EEF2FF;
+
+--success:#16A34A;
+--warning:#F59E0B;
+--danger:#DC2626;
+
+--background:#F8FAFC;
+--card:#FFFFFF;
+--border:#E5E7EB;
+
+--text:#111827;
+--subText:#6B7280;
+
+--shadow:0 8px 24px rgba(0,0,0,.08);
+
+}
+
+body.sapUiBody{
+    background:
+        radial-gradient(circle at top left,#EEF2FF 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#E0F2FE 0%,transparent 30%),
+        linear-gradient(135deg,#F8FAFC,#EEF4FF);
+    min-height:100vh;
+}
+
+
+/*====================================================
+PAGE
+=====================================================*/
+
+.sapMPage{
+    background:var(--background)!important;
+}
+
+
+/*====================================================
+HERO HEADER
+=====================================================*/
+
+.heroHeader{
+
+    max-width:1200px;
+
+    margin:25px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.heroHeader>.sapMHBox{
+
+    margin-bottom:30px;
+
+}
+
+.heroTitle{
+
+    color:var(--text)!important;
+
+    font-size:2rem!important;
+
+    font-weight:800!important;
+
+}
+
+.heroSubtitle{
+
+    color:var(--subText)!important;
+
+    font-size:.95rem!important;
+
+    margin-top:8px;
+
+}
+
+
+/*====================================================
+ADD BUTTON
+=====================================================*/
+
+.addBtn .sapMBtnInner{
+
+    background:var(--primary)!important;
+
+    color:white!important;
+
+    border:none!important;
+
+    border-radius:12px!important;
+
+    height:44px;
+
+    font-weight:700;
+
+    padding:0 20px;
+
+}
+
+.addBtn:hover .sapMBtnInner{
+
+    background:var(--primaryDark)!important;
+
+}
+
+
+/*====================================================
+KPI ROW
+=====================================================*/
+
+.kpiRow{
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.kpiCard{
+
+    flex:1;
+
+    min-width:180px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+    border:none;
+
+}
+
+.kpiCard:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.kpiTeal{
+
+    border-top:5px solid var(--primary);
+
+}
+
+.kpiGreen{
+
+    border-top:5px solid var(--success);
+
+}
+
+.kpiAmber{
+
+    border-top:5px solid var(--warning);
+
+}
+
+.kpiRed{
+
+    border-top:5px solid var(--danger);
+
+}
+
+.kpiNumber{
+
+    font-size:2.2rem!important;
+
+    font-weight:800!important;
+
+    color:var(--text)!important;
+
+}
+
+.kpiLabel{
+
+    color:var(--subText)!important;
+
+    font-size:.85rem!important;
+
+    margin-top:6px;
+
+    text-transform:none!important;
+
+    letter-spacing:0;
+
+}
+
+
+/*====================================================
+FILTER TOOLBAR
+=====================================================*/
+
+.filterToolbar{
+
+    max-width:1200px;
+
+    margin:0 auto 20px auto;
+
+    background:white!important;
+
+    border-radius:18px;
+
+    padding:18px!important;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*====================================================
+SEARCH FIELD
+=====================================================*/
+
+.sapMSF{
+
+    border-radius:12px!important;
+
+    overflow:hidden;
+
+}
+
+.sapMSF .sapMSFF{
+
+    border-radius:12px!important;
+
+}
+
+
+/*====================================================
+SELECT
+=====================================================*/
+
+.sapMSlt{
+
+    border-radius:12px!important;
+
+}
+
+
+/*====================================================
+TABLE
+=====================================================*/
+
+.productTable{
+
+    max-width:1200px;
+
+    margin:0 auto 30px auto!important;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*====================================================
+TABLE HEADER
+=====================================================*/
+
+.productTable .sapMListTblHeader{
+
+    background:#F9FAFB!important;
+
+}
+
+.productTable .sapMListTblHeaderCell{
+
+    border-bottom:1px solid var(--border)!important;
+
+}
+
+.productTable .sapMColumnHeader{
+
+    color:var(--subText)!important;
+
+    font-weight:700!important;
+
+    font-size:.82rem;
+
+    text-transform:uppercase;
+
+}
+
+
+/*====================================================
+ROWS
+=====================================================*/
+
+.productTable .sapMListTblRow{
+
+    transition:.25s;
+
+}
+
+.productTable .sapMListTblRow:hover{
+
+    background:var(--primaryLight)!important;
+
+}
+
+.productTable .sapMLIB{
+
+    border-bottom:1px solid #F1F5F9!important;
+
+}
+
+
+/*====================================================
+PRODUCT ICON
+=====================================================*/
+
+.rowIcon{
+
+    color:var(--primary)!important;
+
+    font-size:1.2rem!important;
+
+    margin-right:.75rem;
+
+}
+
+
+/*====================================================
+PRODUCT NAME
+=====================================================*/
+
+.rowTitle{
+
+    color:var(--text)!important;
+
+    font-size:.95rem!important;
+
+    font-weight:700!important;
+
+}
+
+
+/*====================================================
+OBJECT NUMBER
+=====================================================*/
+
+.sapMObjectNumberText{
+
+    font-weight:700!important;
+
+    color:var(--text)!important;
+
+}
+
+
+/*====================================================
+STATUS
+=====================================================*/
+
+.sapMObjStatus{
+
+    font-weight:600!important;
+
+}
+
+.sapMObjStatusText{
+
+    font-weight:600!important;
+
+}
+
+
+/*====================================================
+ACTION BUTTONS
+=====================================================*/
+
+.sapMBtnTransparent{
+
+    border-radius:10px;
+
+}
+
+.sapMBtnTransparent:hover{
+
+    background:var(--primaryLight)!important;
+
+}
+
+.sapMBtnTransparent .sapUiIcon{
+
+    color:var(--subText);
+
+}
+
+.sapMBtnTransparent:hover .sapUiIcon{
+
+    color:var(--primary);
+
+}
+
+
+/*====================================================
+INPUTS
+=====================================================*/
+
+.sapMInputBaseInner{
+
+    border-radius:12px!important;
+
+}
+
+.sapMInputBase{
+
+    border-radius:12px!important;
+
+}
+
+
+/*====================================================
+BUTTONS
+=====================================================*/
+
+.sapMBtnInner{
+
+    border-radius:12px!important;
+
+}
+
+
+/*====================================================
+DIALOG
+=====================================================*/
+
+.sapMDialog{
+
+    border-radius:20px!important;
+
+    overflow:hidden;
+
+}
+
+.addProductDialog .sapMDialogTitle{
+
+    font-size:1.2rem!important;
+
+    font-weight:700!important;
+
+}
+
+
+/*====================================================
+DETAIL PAGE
+=====================================================*/
+
+.detailHeaderBar{
+
+    background:white!important;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+
+}
+
+.detailHeaderBar .sapMTitle{
+
+    color:var(--text)!important;
+
+    font-weight:700!important;
+
+}
+
+.detailHero{
+
+    background:white;
+
+    padding:40px;
+
+    align-items:center;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    margin:20px;
+
+}
+
+.detailHeroIcon{
+
+    font-size:3rem!important;
+
+    color:white!important;
+
+    background:var(--primary);
+
+    padding:25px;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+
+}
+
+.detailForm{
+
+    margin:20px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    padding:30px;
+
+}
+
+
+/*====================================================
+SCROLLBAR
+=====================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+
+/*====================================================
+ANIMATIONS
+=====================================================*/
+
+.kpiCard,
+.productTable,
+.filterToolbar,
+.heroHeader{
+
+    animation:fadeIn .5s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*====================================================
+RESPONSIVE
+=====================================================*/
+
+@media(max-width:768px){
+
+.heroHeader{
+
+padding:20px;
+
+margin:10px;
+
+}
+
+.filterToolbar{
+
+margin:10px;
+
+}
+
+.productTable{
+
+margin:10px!important;
+
+}
+
+.kpiRow{
+
+gap:15px;
+
+}
+
+.kpiCard{
+
+min-width:100%;
+
+}
+
+.heroTitle{
+
+font-size:1.5rem!important;
+
+}
+
+}

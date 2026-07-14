@@ -1,0 +1,13 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+
+  <!-- A plain full-width App (NavContainer). The router pushes
+       Products.view.xml and Detail.view.xml into its "pages"
+       aggregation as full-screen views, sliding between them —
+       this is the standard Fiori List Report -> Object Page pattern,
+       not a tablet-style split screen. -->
+  <App id="app"/>
+
+</mvc:View>
+

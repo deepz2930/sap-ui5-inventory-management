@@ -1,0 +1,85 @@
+<mvc:View
+  controllerName="learning.northwind.controller.Products"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m">
+
+  <Page showHeader="false">
+
+    <!-- ============ Hero header with KPI tiles ============ -->
+    <VBox class="heroHeader">
+      <HBox alignItems="Center" justifyContent="SpaceBetween" wrap="NoWrap">
+        <VBox>
+          <Title text="Northwind Catalog" level="H1" class="heroTitle"/>
+          <Text text="Manage your product inventory" class="heroSubtitle"/>
+        </VBox>
+        <Button icon="sap-icon://add" text="Add Product" type="Emphasized" press="onAddProduct" class="addBtn"/>
+      </HBox>
+
+      <!-- KPI counts recalculate automatically any time the
+           "products" model array changes (add/edit/delete), because
+           each Text is bound to the WHOLE array via a formatter. -->
+      <HBox class="kpiRow">
+        <VBox class="kpiCard kpiTeal">
+          <Text text="{parts:[{path:'products>/Products'}], formatter:'.formatter.countAll'}" class="kpiNumber"/>
+          <Text text="Total Products" class="kpiLabel"/>
+        </VBox>
+        <VBox class="kpiCard kpiGreen">
+          <Text text="{parts:[{path:'products>/Products'}], formatter:'.formatter.countInStock'}" class="kpiNumber"/>
+          <Text text="In Stock" class="kpiLabel"/>
+        </VBox>
+        <VBox class="kpiCard kpiAmber">
+          <Text text="{parts:[{path:'products>/Products'}], formatter:'.formatter.countLowStock'}" class="kpiNumber"/>
+          <Text text="Low Stock" class="kpiLabel"/>
+        </VBox>
+        <VBox class="kpiCard kpiRed">
+          <Text text="{parts:[{path:'products>/Products'}], formatter:'.formatter.countOutOfStock'}" class="kpiNumber"/>
+          <Text text="Out of Stock" class="kpiLabel"/>
+        </VBox>
+      </HBox>
+    </VBox>
+
+    <!-- ============ Search + stock filter ============ -->
+    <Toolbar class="filterToolbar">
+      <SearchField width="60%" liveChange="onSearch" placeholder="Search products by name..."/>
+      <ToolbarSpacer/>
+      <Select id="stockFilter" width="10rem" change="onFilterChange">
+        <core:Item key="all" text="All items"/>
+        <core:Item key="in" text="In stock"/>
+        <core:Item key="low" text="Low stock"/>
+        <core:Item key="out" text="Out of stock"/>
+      </Select>
+    </Toolbar>
+
+    <!-- ============ Product table (Read + entry points for Update/Delete) ============ -->
+    <Table id="productTable" items="{products>/Products}" noDataText="No products found" class="productTable">
+      <columns>
+        <Column><Text text="Product"/></Column>
+        <Column width="14rem" hAlign="Center" minScreenWidth="Tablet" demandPopin="true"><Text text="Unit"/></Column>
+        <Column width="8rem" hAlign="End"><Text text="Price"/></Column>
+        <Column width="9rem" hAlign="Center"><Text text="Status"/></Column>
+        <Column width="7rem" hAlign="End"><Text text="Actions"/></Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <HBox alignItems="Center">
+              <core:Icon src="sap-icon://product" class="rowIcon"/>
+              <Text text="{products>ProductName}" class="rowTitle"/>
+            </HBox>
+            <Text text="{products>QuantityPerUnit}"/>
+            <ObjectNumber number="{products>UnitPrice}" unit="USD"/>
+            <ObjectStatus
+              text="{parts:[{path:'products>UnitsInStock'}], formatter:'.formatter.stockText'}"
+              state="{parts:[{path:'products>UnitsInStock'}], formatter:'.formatter.stockState'}"/>
+            <HBox justifyContent="End">
+              <Button icon="sap-icon://detail-view" type="Transparent" tooltip="View" press="onViewProduct"/>
+              <Button icon="sap-icon://delete" type="Transparent" tooltip="Delete" press="onDeleteProduct"/>
+            </HBox>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </Page>
+
+</mvc:View>

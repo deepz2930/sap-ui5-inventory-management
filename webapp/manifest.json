@@ -1,0 +1,75 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "learning.northwind",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "applicationVersion": { "version": "1.0.0" },
+    "dataSources": {
+      "northwind": {
+        "uri": "/northwind/",
+        "type": "OData",
+        "settings": { "odataVersion": "2.0" }
+      }
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "learning.northwind.view.App",
+      "type": "XML",
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": { "bundleName": "learning.northwind.i18n.i18n" }
+      },
+      "": {
+        "dataSource": "northwind",
+        "preload": true
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "learning.northwind.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "list",
+          "target": "list"
+        },
+        {
+          "pattern": "Products({productID})",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "list": {
+          "viewName": "Products",
+          "viewLevel": 1
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewLevel": 2
+        }
+      }
+    }
+  }
+}

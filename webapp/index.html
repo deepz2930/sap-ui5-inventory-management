@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Northwind Product Catalog</title>
+
+  <!-- This script tag loads the entire UI5 framework from a CDN.
+       data-sap-ui-resourceroots tells UI5: "my app's namespace
+       'learning.northwind' lives in this same folder (./)" -->
+  <script
+    id="sap-ui-bootstrap"
+    src="https://sdk.openui5.org/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_horizon"
+    data-sap-ui-resourceroots='{"learning.northwind": "./"}'
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-async="true"
+    data-sap-ui-frameOptions="trusted">
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="sapUiBody" id="content">
+</body>
+<script>
+  // Once UI5 core is ready, create our Component and place it on the page.
+  // The Component is the "root" of a UI5 app — think of it like the
+  // <App /> root component in a React app.
+  sap.ui.getCore().attachInit(function () {
+    new sap.ui.core.ComponentContainer({
+      name: "learning.northwind",
+      settings: { id: "northwind" },
+      async: true
+    }).placeAt("content");
+  });
+</script>
+</html>

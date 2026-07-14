@@ -1,0 +1,54 @@
+<mvc:View
+  controllerName="learning.northwind.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns:f="sap.ui.layout.form"
+  xmlns="sap.m">
+
+  <Page showNavButton="true" navButtonPress="onNavBack">
+
+    <customHeader>
+      <Bar class="detailHeaderBar">
+        <contentLeft>
+          <Button icon="sap-icon://nav-back" type="Transparent" press="onNavBack"/>
+        </contentLeft>
+        <contentMiddle>
+          <Title text="{products>ProductName}" level="H2"/>
+        </contentMiddle>
+        <contentRight>
+          <Button text="Edit" icon="sap-icon://edit" press="onEdit" visible="{= !${ui>/editMode} }"/>
+          <Button text="Save" icon="sap-icon://save" type="Emphasized" press="onSave" visible="{ui>/editMode}"/>
+          <Button text="Cancel" press="onCancel" visible="{ui>/editMode}"/>
+          <Button icon="sap-icon://delete" type="Reject" tooltip="Delete" press="onDelete"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
+
+    <!-- Decorative hero band with a status badge, mirrors the list's
+         color coding so the two views feel like one product -->
+    <VBox class="detailHero">
+      <core:Icon src="sap-icon://product" class="detailHeroIcon"/>
+      <ObjectStatus
+        text="{parts:[{path:'products>UnitsInStock'}], formatter:'.formatter.stockText'}"
+        state="{parts:[{path:'products>UnitsInStock'}], formatter:'.formatter.stockState'}"/>
+    </VBox>
+
+    <f:SimpleForm editable="true" layout="ResponsiveGridLayout" class="detailForm">
+      <Label text="Product Name"/>
+      <Input value="{products>ProductName}" enabled="{ui>/editMode}"/>
+
+      <Label text="Quantity Per Unit"/>
+      <Input value="{products>QuantityPerUnit}" enabled="{ui>/editMode}"/>
+
+      <Label text="Unit Price"/>
+      <Input value="{products>UnitPrice}" type="Number" enabled="{ui>/editMode}"/>
+
+      <Label text="Units In Stock"/>
+      <Input value="{products>UnitsInStock}" type="Number" enabled="{ui>/editMode}"/>
+
+      <Label text="Discontinued"/>
+      <Switch state="{products>Discontinued}" enabled="{ui>/editMode}"/>
+    </f:SimpleForm>
+  </Page>
+
+</mvc:View>
